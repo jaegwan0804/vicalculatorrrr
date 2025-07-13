@@ -1,118 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
-
-body {
-  font-family: "Montserrat", Arial, sans-serif;
-  background: linear-gradient(135deg,#e3f2fd 0%,#fff8e1 100%);
-  min-height: 100vh;
-  margin: 0;
-}
-h1 {
-  text-align: center;
-  margin: 40px 0 30px;
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-.subtitle {
-  font-weight:600;
-  text-align:center;
-  margin-bottom:30px;
-  font-size:1.45rem;
-}
-section {
-  width: 100vw;
-  max-width: 950px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+body { font-family: sans-serif; }
+h1 { text-align: center; }
+.subtitle { text-align: center; font-size: 1.4rem; font-weight: bold; margin-bottom: 28px; }
+section { max-width: 480px; margin: 60px auto; border-radius: 12px; box-shadow: 0 4px 16px #eee; padding: 30px 0; }
+.type-buttons { display: flex; gap: 16px; justify-content: center; margin-bottom: 32px; }
+.big-btn { padding: 24px 36px; font-size: 1.2rem; background: #ffd54d; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
+.back { cursor:pointer; color:#1976d2; margin-bottom:18px; font-weight:600;}
+label { display: block; margin: 20px auto 10px; font-weight: bold;}
+input { width: 100%; padding: 10px 12px; margin-top: 4px; font-size: 1.1rem; border-radius: 6px; border: 1px solid #bbb;}
+.calc-btn { display:block; width:100%; margin:24px auto 0; padding:14px 0; font-size:1.05rem; font-weight:600; color:#fff; background:#1976d2; border:none; border-radius:8px; cursor:pointer; }
+.calc-btn:hover { background: #125ea2; }
+.result-box { max-width:380px; margin:26px auto 0; padding:22px 18px; background:#fff9; border-radius:14px; box-shadow:0 4px 14px #eee; line-height:1.6; font-size:1.05rem; text-align:center; }
+.result-box b{font-size:1.18rem;}
 .hidden { display: none !important; }
-.type-buttons {
-  display: flex; justify-content: center;
-  gap: 38px; flex-wrap: wrap; margin-bottom: 34px;
-}
-.big-btn, .mini-btn {
-  border: none; border-radius: 18px; cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0,0,0,.08); transition: transform .15s, filter .15s;
-}
-.big-btn {
-  padding: 38px 48px; font-size: 1.45rem; font-weight: 700; background: #ffd54d;
-}
-.mini-btn {
-  padding: 22px 32px; font-size: 1.18rem; font-weight: 700; background: #4dd0e1;
-}
-.big-btn:hover,.mini-btn:hover{transform:translateY(-6px); filter:brightness(.95);}
-.mini-btn.active{outline:4px solid #1153a5;}
-.back {
-  cursor: pointer; color: #1976d2;
-  margin-bottom: 22px; font-weight: 700; font-size: 1.15rem; align-self: flex-start;
-}
-label {
-  display: block; margin: 26px auto; max-width: 420px;
-  font-weight: 700; font-size: 1.15rem;
-}
-.inline { display: flex; align-items: center; gap: 14px; margin: 26px auto; }
-input {
-  width: 100%; margin-top: 10px; padding: 18px 20px;
-  border: 1px solid #ccc; border-radius: 8px; background: #fafafa; font-size: 1.15rem;
-}
-.calc-btn {
-  display: block; width: 420px; margin: 40px auto 0;
-  padding: 20px 0; font-size: 1.30rem; font-weight: 700; color: #fff;
-  background: #1976d2; border: none; border-radius: 14px; cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0,0,0,.08); transition: background .15s;
-}
-.calc-btn:hover{background:#1153a5;}
-.result-box{
-  max-width:520px; margin:48px auto 0; padding:34px 38px;
-  background:#ffffffd9; border-radius:20px; box-shadow:0 4px 14px rgba(0,0,0,.08);
-  line-height:2; font-size:1.30rem; text-align:center;
-}
-.result-box b{font-size:1.50rem;}
-.grid{
-  display: grid; grid-template-columns: repeat(6,164px);
-  gap: 18px; margin: 40px auto 26px auto; justify-content: center;
-}
-.wrap{
-  display: flex; flex-direction: column; align-items: center;
-}
-.cell{
-  width:164px; height:164px; border-radius:12px;
-  background:#e0e0e0; cursor:pointer;
-  transition: background .15s;
-}
-.cell.standby   {background:#ffd54d;}
-.cell.discharge {background:#4fc3f7;}
-.cell.charge    {background:#81c784;}
-.time-label{
-  font-size:1.10rem;
-  margin-top:10px; text-align:center; line-height:1.1;
-  font-weight:600;
-}
-.legend{
-  margin-bottom:18px;
-  font-size:1.18rem;
-  font-weight:600;
-}
-.legend-box{
-  display:inline-block; width:44px; height:26px;
-  border-radius:5px; margin-right:8px;
-}
-.legend-box.standby{background:#ffd54d;}
-.legend-box.discharge{background:#4fc3f7;}
-.legend-box.charge{background:#81c784;}
-#summary{
-  margin:24px 0;
-  font-weight:700;
-  font-size:1.20rem;
-}
-.input-wrap {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 22px; margin-bottom: 18px;
-}
-#pvKinds, #windKinds {
-  margin-bottom: 30px;
-  gap: 34px;
-}
+
 
