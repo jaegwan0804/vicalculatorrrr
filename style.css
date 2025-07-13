@@ -56,7 +56,7 @@ input{
 .grid{
   display:grid; grid-template-columns:repeat(6,128px);
   gap:6px; margin:20px auto;
-  justify-content:center;        /* 중앙정렬을 위한 추가 */
+  justify-content:center;
 }
 .wrap{display:flex; flex-direction:column; align-items:center;}
 .cell{
@@ -75,7 +75,6 @@ input{
 .legend-box.charge{background:var(--green);}
 #summary{margin:18px 0; font-weight:600;}
 
-/* ===== 폼 영역 중앙정렬 ===== */
 #pvForm, #windForm, #essForm {
   display: flex;
   flex-direction: column;
@@ -94,5 +93,3 @@ input{
   margin-bottom: 24px;
   gap: 24px;
 }
-
-
