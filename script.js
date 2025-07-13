@@ -151,4 +151,3 @@ function print(sel, html) {
   box.innerHTML = html;
   box.classList.remove("hidden");
 }
-
