@@ -8,7 +8,7 @@
 <body>
   <h1>통합 VIC 계산기</h1>
 
-  <!-- 0단계 : 발급대상 선택 -->
+  <!-- 대상 선택 화면 -->
   <section id="selector">
     <p class="subtitle">VIC 발급 대상을 선택하세요</p>
     <div class="type-buttons">
@@ -20,16 +20,14 @@
     </div>
   </section>
 
-  <!-- ───────── 태양광 & ESS-연계 태양광 ───────── -->
+  <!-- 태양광/ESS연계태양광 화면 -->
   <section id="pvForm" class="hidden">
     <div class="back" data-back>← 처음으로</div>
-
     <p class="subtitle">부지 유형을 선택하세요</p>
     <div id="pvKinds" class="type-buttons">
       <button class="mini-btn" data-role="ground">일반부지</button>
       <button class="mini-btn" data-role="building">건축물</button>
     </div>
-
     <div class="input-wrap">
       <label>설비&nbsp;용량&nbsp;(MW)
         <input id="pvCap" type="number" step="0.001" placeholder="예) 3" required>
@@ -38,21 +36,18 @@
         <input id="pvEner" type="number" step="0.1" placeholder="예) 500" required>
       </label>
     </div>
-
     <button class="calc-btn" id="pvCalc">계산</button>
     <section id="pvResult" class="result-box hidden"></section>
   </section>
 
-  <!-- ───────── 풍력 & ESS-연계 풍력 ───────── -->
+  <!-- 풍력/ESS연계풍력 화면 -->
   <section id="windForm" class="hidden">
     <div class="back" data-back>← 처음으로</div>
-
     <p class="subtitle">풍력 종류를 선택하세요</p>
     <div id="windKinds" class="type-buttons">
       <button class="mini-btn" data-role="onshore">육상&nbsp;풍력</button>
       <button class="mini-btn" data-role="offshore">해상&nbsp;풍력</button>
     </div>
-
     <div class="input-wrap">
       <label>설비&nbsp;용량&nbsp;(MW)
         <input id="wCap" type="number" step="0.001" placeholder="예) 5" required>
@@ -64,37 +59,27 @@
         <input id="wEner" type="number" step="0.1" placeholder="예) 850" required>
       </label>
     </div>
-
     <button class="calc-btn" id="wCalc">계산</button>
     <section id="wResult" class="result-box hidden"></section>
   </section>
 
-  <!-- ───────── ESS 단독 (스케줄러) ───────── -->
+  <!-- ESS 단독 스케줄러 화면 -->
   <section id="essForm" class="hidden">
     <div class="back" data-back>← 처음으로</div>
-
     <label class="inline">ESS 정격출력 (MW)
       <input id="eCap" type="number" step="0.01" value="0.75" required>
     </label>
-
-    <!-- 24시간 그리드 -->
     <div id="grid" class="grid"></div>
-
-    <!-- 범례 -->
     <div class="legend">
       <span class="legend-box standby"></span> 대기&nbsp;&nbsp;
       <span class="legend-box discharge"></span> 방출&nbsp;&nbsp;
       <span class="legend-box charge"></span> 충전
     </div>
-
     <div id="summary">대기 0h | 방출 0h | 충전 0h&nbsp;&nbsp;Σk = 0</div>
     <button class="calc-btn" id="eCalc">계산</button>
-
     <section id="eResult" class="result-box hidden"></section>
   </section>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
