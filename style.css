@@ -3,37 +3,40 @@
 :root{
   --blue:#1976d2; --blue-dark:#1153a5;
   --gray:#fafafa; --shadow:0 4px 14px rgba(0,0,0,.1);
+  --yellow:#ffd54d; --sky:#4fc3f7; --green:#81c784;
 }
 
-*{box-sizing:border-box}
+*{box-sizing:border-box; margin:0; padding:0}
 body{
   font-family:"Montserrat",Arial,sans-serif;
   background:linear-gradient(135deg,#e3f2fd 0%,#fff8e1 100%);
-  margin:0; padding:0 20px 60px;
+  padding:0 20px 60px;
 }
 h1{ text-align:center; margin:40px 0 30px; }
+
 .subtitle{font-weight:600; text-align:center; margin-bottom:14px;}
 .hidden{display:none;}
 
 .type-buttons{display:flex; justify-content:center; gap:24px; flex-wrap:wrap}
-.big-btn, .mini-btn{
-  border:none; border-radius:12px; cursor:pointer; box-shadow:var(--shadow);
-  transition:transform .15s, filter .15s;
+.big-btn,.mini-btn{
+  border:none; border-radius:12px; cursor:pointer;
+  box-shadow:var(--shadow); transition:transform .15s, filter .15s;
 }
-.big-btn{
-  padding:26px 32px; font-size:1.1rem; font-weight:600; background:#ffd54d;
-}
-.mini-btn{
-  padding:14px 20px; font-size:0.95rem; font-weight:600; background:#4dd0e1;
-}
-.big-btn:hover, .mini-btn:hover{transform:translateY(-4px); filter:brightness(.95);}
+.big-btn{padding:26px 32px; font-size:1.1rem; font-weight:600; background:var(--yellow);}
+.mini-btn{padding:14px 20px; font-size:0.95rem; font-weight:600; background:#4dd0e1;}
+.big-btn:hover,.mini-btn:hover{transform:translateY(-4px); filter:brightness(.95);}
+.mini-btn.active{outline:3px solid var(--blue-dark);}
+
+.back{cursor:pointer; color:var(--blue); margin-bottom:14px; font-weight:600;}
 
 label{display:block; margin:18px auto; max-width:320px; font-weight:600;}
+.inline{display:flex; align-items:center; gap:8px; margin:18px auto}
 input{
   width:100%; margin-top:6px; padding:10px 12px;
   border:1px solid #ccc; border-radius:6px; background:var(--gray);
   font-size:1rem;
 }
+
 .calc-btn{
   display:block; width:320px; margin:28px auto 0;
   padding:14px 0; font-size:1.05rem; font-weight:600; color:#fff;
@@ -42,11 +45,31 @@ input{
 }
 .calc-btn:hover{background:var(--blue-dark);}
 
-.back{cursor:pointer; color:var(--blue); margin-bottom:12px; font-weight:600;}
-
 .result-box{
   max-width:400px; margin:34px auto 0; padding:24px 28px;
   background:#ffffffd9; border-radius:14px; box-shadow:var(--shadow);
   line-height:1.6; font-size:1.05rem; text-align:center;
 }
 .result-box b{font-size:1.2rem;}
+
+/* ==== ESS 스케줄러 그리드 ==== */
+.grid{
+  display:grid; grid-template-columns:repeat(6,128px);
+  gap:6px; margin:20px 0;
+}
+.wrap{display:flex; flex-direction:column; align-items:center;}
+.cell{
+  width:128px; height:128px; border-radius:8px;
+  background:#e0e0e0; cursor:pointer;
+}
+.cell.standby   {background:var(--yellow);}
+.cell.discharge {background:var(--sky);}
+.cell.charge    {background:var(--green);}
+
+.time-label{font-size:0.8rem; margin-top:6px; text-align:center; line-height:1.1;}
+.legend{margin-bottom:14px; font-size:1rem;}
+.legend-box{display:inline-block; width:32px; height:18px; border-radius:3px; margin-right:6px;}
+.legend-box.standby{background:var(--yellow);}
+.legend-box.discharge{background:var(--sky);}
+.legend-box.charge{background:var(--green);}
+#summary{margin:18px 0; font-weight:600;}
