@@ -8,38 +8,80 @@
 <body>
   <h1>통합 VIC 계산기</h1>
 
-  <!-- 처음에 보일 섹션(유일하게 class="hidden" 없음) -->
+  <!-- 첫 화면: 대상 선택만 보임 -->
   <section id="selector">
     <p class="subtitle">VIC 발급 대상을 선택하세요</p>
     <div class="type-buttons">
       <button class="big-btn" data-opt="pv">태양광</button>
       <button class="big-btn" data-opt="wind">풍력</button>
       <button class="big-btn" data-opt="ess">ESS&nbsp;단독</button>
+      <button class="big-btn" data-opt="pvess">ESS&nbsp;연계&nbsp;태양광</button>
+      <button class="big-btn" data-opt="windess">ESS&nbsp;연계&nbsp;풍력</button>
     </div>
   </section>
 
-  <!-- 아래 섹션들은 모두 처음에 숨김 -->
+  <!-- 태양광 -->
   <section id="pvForm" class="hidden">
     <div class="back" data-back>← 처음으로</div>
-    <p class="subtitle">태양광 입력</p>
-    <button onclick="alert('예시 폼')">계산(예시)</button>
+    <p class="subtitle">부지 유형을 선택하세요</p>
+    <div id="pvKinds" class="type-buttons">
+      <button class="mini-btn" data-role="ground">일반부지</button>
+      <button class="mini-btn" data-role="building">건축물</button>
+    </div>
+    <div class="input-wrap">
+      <label>설비&nbsp;용량&nbsp;(MW)
+        <input id="pvCap" type="number" step="0.001" placeholder="예) 3" required>
+      </label>
+      <label>정산기간&nbsp;총&nbsp;발전량&nbsp;(MWh)
+        <input id="pvEner" type="number" step="0.1" placeholder="예) 500" required>
+      </label>
+    </div>
+    <button class="calc-btn" id="pvCalc">계산</button>
+    <section id="pvResult" class="result-box hidden"></section>
   </section>
 
+  <!-- 풍력 -->
   <section id="windForm" class="hidden">
     <div class="back" data-back>← 처음으로</div>
-    <p class="subtitle">풍력 입력</p>
-    <button onclick="alert('예시 폼')">계산(예시)</button>
+    <p class="subtitle">풍력 종류를 선택하세요</p>
+    <div id="windKinds" class="type-buttons">
+      <button class="mini-btn" data-role="onshore">육상&nbsp;풍력</button>
+      <button class="mini-btn" data-role="offshore">해상&nbsp;풍력</button>
+    </div>
+    <div class="input-wrap">
+      <label>설비&nbsp;용량&nbsp;(MW)
+        <input id="wCap" type="number" step="0.001" placeholder="예) 5" required>
+      </label>
+      <label id="distWrap" class="hidden">연안&nbsp;거리&nbsp;(km)
+        <input id="wDist" type="number" step="0.1" placeholder="예) 8">
+      </label>
+      <label>정산기간&nbsp;총&nbsp;발전량&nbsp;(MWh)
+        <input id="wEner" type="number" step="0.1" placeholder="예) 850" required>
+      </label>
+    </div>
+    <button class="calc-btn" id="wCalc">계산</button>
+    <section id="wResult" class="result-box hidden"></section>
   </section>
 
+  <!-- ESS 단독 -->
   <section id="essForm" class="hidden">
     <div class="back" data-back>← 처음으로</div>
-    <p class="subtitle">ESS 입력</p>
-    <button onclick="alert('예시 폼')">계산(예시)</button>
+    <label class="inline">ESS 정격출력 (MW)
+      <input id="eCap" type="number" step="0.01" value="0.75" required>
+    </label>
+    <div id="grid" class="grid"></div>
+    <div class="legend">
+      <span class="legend-box standby"></span> 대기&nbsp;&nbsp;
+      <span class="legend-box discharge"></span> 방출&nbsp;&nbsp;
+      <span class="legend-box charge"></span> 충전
+    </div>
+    <div id="summary">대기 0h | 방출 0h | 충전 0h&nbsp;&nbsp;Σk = 0</div>
+    <button class="calc-btn" id="eCalc">계산</button>
+    <section id="eResult" class="result-box hidden"></section>
   </section>
 
   <script src="script.js"></script>
 </body>
 </html>
-
 
 
